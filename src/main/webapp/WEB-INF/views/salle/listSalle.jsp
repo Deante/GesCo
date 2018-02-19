@@ -57,17 +57,21 @@
 										<td>${salle.id}</td>
 										<td>${salle.nom}</td>
 										<td>${salle.capacite}</td>
-										<td><a class="btn btn-info" href="edit/${salle.id}"><span
-												class="fa fa-edit"></span></a> <a class="btn btn-danger"
-											href="del/${salle.id}"><span class="fa fa-trash-o"></span></a>
+										<td>
+											<a class="btn btn-info" href="edit/${salle.id}">
+												<span class="fa fa-edit"></span>
+											</a>
+											<a class="btn btn-danger" href="del/${salle.id}">
+												<span class="fa fa-trash-o"></span>
+											</a>
 										</td>
 
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
- 						<h4>Ajouter une salle:</h4>
-<%-- 						<form:form method="post" action="add/" modelAttribute="salle">
+						<h4>Ajouter une salle:</h4>
+  						<form:form method="post" action="add/" modelAttribute="salle">
 							Nom<form:input path="nom" />
 							Capacite<form:input path="capacite" />
 
@@ -78,7 +82,7 @@
 									element="div" /> <form:errors path="remarque"
 									cssClass="errorblock" element="div" />
 							</span>
-						</form:form> --%>
+						</form:form>  
 					</div>
 				</div>
 			</div>
