@@ -16,17 +16,17 @@ public class Salle {
 	private Long id;
 
 	private String nom;
-	
-	private long capacite;
-	
-	@ManyToMany(mappedBy="salles")
+
+	private Long capacite;
+
+	@ManyToMany(mappedBy = "salles")
 	private List<Matiere> matieres;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -38,11 +38,11 @@ public class Salle {
 		this.nom = nom;
 	}
 
-	public long getCapacite() {
+	public Long getCapacite() {
 		return capacite;
 	}
 
-	public void setCapacite(long capacite) {
+	public void setCapacite(Long capacite) {
 		this.capacite = capacite;
 	}
 
@@ -54,16 +54,14 @@ public class Salle {
 		this.matieres = matieres;
 	}
 
-	public Salle(String nom, long capacite, List<Matiere> matieres) {
+	public Salle(String nom, Long capacite) {
 		super();
 		this.nom = nom;
 		this.capacite = capacite;
-		this.matieres = matieres;
 	}
 
 	public Salle() {
 		super();
 	}
-	
-	
+
 }

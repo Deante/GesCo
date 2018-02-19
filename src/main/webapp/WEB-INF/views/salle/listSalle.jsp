@@ -70,19 +70,8 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<h4>Ajouter une salle:</h4>
-  						<form:form method="post" action="add/" modelAttribute="salle">
-							Nom<form:input path="nom" />
-							Capacite<form:input path="capacite" />
 
-							<button type="submit" value="ajouter" class="btn btn-info">
-								<span class="fa fa-plus-circle"></span>
-							</button>
-							<span> <form:errors path="nom" cssClass="errorblock"
-									element="div" /> <form:errors path="remarque"
-									cssClass="errorblock" element="div" />
-							</span>
-						</form:form>  
+<a href="<c:url value='/salle/add' />" class="btn btn-success btn-lg" role="button" aria-disabled="true">Ajouter une salle</a>
 					</div>
 				</div>
 			</div>

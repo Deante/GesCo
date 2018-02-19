@@ -52,8 +52,7 @@ public class SalleDaoImpl implements SalleDao {
 
 	@Override
 	public Salle findByPrimaryKey(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Salle.class, id);
 	}
 
 }
