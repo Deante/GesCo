@@ -67,7 +67,7 @@
 							</tbody>
 						</table>
  						<h4>Ajouter une salle:</h4>
-						<form:form method="post" action="add/" modelAttribute="salle">
+<%-- 						<form:form method="post" action="add/" modelAttribute="salle">
 							Nom<form:input path="nom" />
 							Capacite<form:input path="capacite" />
 
@@ -78,7 +78,7 @@
 									element="div" /> <form:errors path="remarque"
 									cssClass="errorblock" element="div" />
 							</span>
-						</form:form>
+						</form:form> --%>
 					</div>
 				</div>
 			</div>
