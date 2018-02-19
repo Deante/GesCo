@@ -9,13 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonView;
-
 @Entity(name = "prof")
 public class Prof {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	private String nom;
 	
