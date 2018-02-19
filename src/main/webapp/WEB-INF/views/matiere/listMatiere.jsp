@@ -38,7 +38,7 @@
 			<div class="col"></div>
 			<div class="col-8">
 				<div class="card">
-					<div class="card-header">Liste des chevaux</div>
+					<div class="card-header">Liste des Matieres</div>
 
 					<div class="card-body">
 						<table id="tableHorse"
@@ -47,22 +47,22 @@
 								<tr>
 									<th scope="col">Identifiant</th>
 									<th scope="col">Nom</th>
-									<th scope="col">Remarque</th>
-									<th scope="col">Centre</th>
-									<th scope="col">Registre</th>
+									<th scope="col">Couleur</th>
+									<th scope="col">Salles</th>
+									<th scope="col">Profs</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${horses}" var="horse">
+								<c:forEach items="${matieres}" var="matieres">
 									<tr>
-										<td>${horse.id}</td>
-										<td>${horse.nom}</td>
-										<td>${horse.remarque}</td>
-										<td>${horse.centreEquestre.id}:${horse.centreEquestre.nom}</td>
-										<td>${horse.registre.id}</td>
-										<td><a class="btn btn-info" href="edit/${horse.id}"><span
+										<td>${matieres.id}</td>
+										<td>${matieres.nom}</td>
+										<td><form:select path="couleur" items="${couleurs}" /></td>
+										<td>${matieres.salles.id}:${horse.centreEquestre.nom}</td>
+										<td>${matieres.profs.id}</td>
+										<td><a class="btn btn-info" href="edit/${matieres.id}"><span
 												class="fa fa-edit"></span></a> <a class="btn btn-danger"
-											href="del/${horse.id}"><span class="fa fa-trash-o"></span></a>
+											href="del/${matieres.id}"><span class="fa fa-trash-o"></span></a>
 										</td>
 
 									</tr>
@@ -70,11 +70,11 @@
 							</tbody>
 						</table>
 						<h4>Ajouter cheval:</h4>
-						<form:form method="post" action="add/" modelAttribute="cheval">
+						<form:form method="post" action="add/" modelAttribute="matiere">
 							Nom<form:input path="nom" />
-							Remarque<form:input path="remarque" />
-							N°centre equestre<form:input path="centreEquestre.id" />
-							N°registre<form:input path="registre.id" />
+							Couleur<form:input path="couleur" />
+							Salles<form:input path="salles.id" />
+							Profs<form:input path="profs.id" />
 							<button type="submit" value="ajouter" class="btn btn-info">
 								<span class="fa fa-plus-circle"></span>
 							</button>

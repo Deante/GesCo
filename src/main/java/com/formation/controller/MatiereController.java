@@ -1,6 +1,7 @@
 package com.formation.controller;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.formation.dao.MatiereDao;
+import com.formation.model.Couleur;
 import com.formation.model.Matiere;
 import com.formation.model.validator.MatiereValidator;
 
@@ -31,12 +33,14 @@ public class MatiereController {
 	@RequestMapping(value = "/listMatiere", method = RequestMethod.GET)
 	public String listMatiere(Model model) {
 
-		List<Matiere> horses = new ArrayList<>();
-		horses = matiereDao.findAll();
-		model.addAttribute("horses", horses);
+		List<Matiere> matieres = new ArrayList<>();
+		matieres = matiereDao.findAll();
+		model.addAttribute("matieres", matieres);
 		if (!model.containsAttribute("matiere")) {
 	        model.addAttribute("matiere", new Matiere());
 	    }
+		List<Couleur> couleurs = new ArrayList<Couleur>(EnumSet.allOf(Couleur.class));
+		model.addAttribute("couleurs", couleurs);
 		return "matiere/listMatiere";
 	}
 
@@ -73,6 +77,8 @@ public class MatiereController {
 	public String modifMatiere(Model model, @PathVariable("id") Long id) {
 		Matiere matiere = matiereDao.findByPrimaryKey(id);
 		model.addAttribute("matiere", matiere);
+		List<Couleur> couleurs = new ArrayList<Couleur>(EnumSet.allOf(Couleur.class));
+		model.addAttribute("couleurs", couleurs);
 		return "matiere/editMatiere";
 
 	}

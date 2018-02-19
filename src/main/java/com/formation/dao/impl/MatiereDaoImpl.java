@@ -26,7 +26,7 @@ public class MatiereDaoImpl implements MatiereDao {
 
 	@Override
 	public List<Matiere> findAll() {
-		String querystring = "SELECT c FROM Matiere c ";
+		String querystring = "SELECT c FROM matiere c ";
 		Query query = em.createQuery(querystring);
 		List<Matiere> list = query.getResultList();
 		return list;
