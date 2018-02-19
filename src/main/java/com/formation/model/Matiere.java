@@ -7,15 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.swing.text.View;
-
-import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity(name = "matiere")
 public class Matiere {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	private String nom;
 
