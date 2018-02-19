@@ -41,36 +41,36 @@
 					<div class="card-header">Liste des salles</div>
 
 					<div class="card-body">
-						<table id="tableHorse"
+						<table id="tableSalle"
 							class="table table-bordered table-hover table-striped">
 							<thead>
 								<tr>
 									<th scope="col">Identifiant</th>
 									<th scope="col">Nom</th>
 									<th scope="col">Capacite</th>
+									<th scope="col">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${horses}" var="horse">
+								<c:forEach items="${listeSalles}" var="salle">
 									<tr>
-										<td>${horse.id}</td>
-										<td>${horse.nom}</td>
-										<td>${horse.capacite}</td>
-										<td><a class="btn btn-info" href="edit/${horse.id}"><span
+										<td>${salle.id}</td>
+										<td>${salle.nom}</td>
+										<td>${salle.capacite}</td>
+										<td><a class="btn btn-info" href="edit/${salle.id}"><span
 												class="fa fa-edit"></span></a> <a class="btn btn-danger"
-											href="del/${horse.id}"><span class="fa fa-trash-o"></span></a>
+											href="del/${salle.id}"><span class="fa fa-trash-o"></span></a>
 										</td>
 
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<h4>Ajouter cheval:</h4>
-						<form:form method="post" action="add/" modelAttribute="cheval">
+ 						<h4>Ajouter une salle:</h4>
+						<form:form method="post" action="add/" modelAttribute="salle">
 							Nom<form:input path="nom" />
-							Remarque<form:input path="remarque" />
-							N°centre equestre<form:input path="centreEquestre.id" />
-							N°registre<form:input path="registre.id" />
+							Capacite<form:input path="capacite" />
+
 							<button type="submit" value="ajouter" class="btn btn-info">
 								<span class="fa fa-plus-circle"></span>
 							</button>

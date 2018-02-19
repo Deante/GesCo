@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +19,12 @@ import com.formation.dao.SalleDao;
 import com.formation.model.Couleur;
 import com.formation.model.Salle;
 
-
 @Controller
 @RequestMapping("/salle")
 public class SalleController {
 
 	@Autowired
 	SalleDao salleDao;
-
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String getAddNewSalleForm(Model model) {
@@ -40,12 +37,11 @@ public class SalleController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String processAddNewSalleForm(@ModelAttribute("salle") Salle salle, BindingResult result,
-			Model model, HttpServletRequest request) {
+	public String processAddNewSalleForm(@ModelAttribute("salle") Salle salle, BindingResult result, Model model,
+			HttpServletRequest request) {
 
-		
 		List<Couleur> couleurs = new ArrayList<Couleur>(EnumSet.allOf(Couleur.class));
-        model.addAttribute("couleurs", couleurs);		
+		model.addAttribute("couleurs", couleurs);
 
 		if (result.hasErrors()) {
 			System.out.println("Errors sur la marque : " + result.getErrorCount());
@@ -69,10 +65,9 @@ public class SalleController {
 	public String getAddNewSalleForm(@PathVariable(value = "id") Long id, Model model) {
 		model.addAttribute("action", "Editer");
 
-		
 		List<Couleur> couleurs = new ArrayList<Couleur>(EnumSet.allOf(Couleur.class));
-        model.addAttribute("couleurs", couleurs);				
-		
+		model.addAttribute("couleurs", couleurs);
+
 		Salle a = salleDao.findByPrimaryKey(id);
 		if (a == null) {
 			return "redirect:/error";
