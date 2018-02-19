@@ -1,4 +1,4 @@
-package com.formation.daoImpl;
+package com.formation.dao.impl;
 
 import java.util.List;
 
